@@ -17,7 +17,7 @@ class App extends React.Component {
     render() {
         return (React.createElement(react_native_1.View, { style: styles.container },
             React.createElement(react_native_1.Text, { style: styles.welcome }, "Welcome to React Native!"),
-            React.createElement(react_native_1.Text, { style: styles.instructions }, "To get started, edit App.js"),
+            React.createElement(react_native_1.Text, { style: styles.instructions }, "To get started, edit App.js this is liushao~ hahhaahaha"),
             React.createElement(react_native_1.Text, { style: styles.instructions }, instructions)));
     }
 }

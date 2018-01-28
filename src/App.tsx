@@ -29,6 +29,7 @@ export default class App extends React.Component<{}> {
         </Text>
                 <Text style={styles.instructions}>
                     To get started, edit App.js
+                    this is liushao~ hahhaahaha
         </Text>
                 <Text style={styles.instructions}>
                     {instructions}
