@@ -8,8 +8,9 @@ import * as React from 'react';
 import {
     Platform,
     StyleSheet,
-    Text,
-    View
+    Text, StatusBar,
+    View,
+    Button
 } from 'react-native';
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
@@ -20,17 +21,29 @@ const instructions = Platform.select({
         'Shake or press menu button for dev menu',
 });
 
-export default class App extends React.Component<{}> {
+class App extends React.Component<{}> {
+    static navigationOptions = {
+        title: 'Great',
+        headerStyle: {
+            height: 35,
+            justifyContent: 'center'
+        },
+        headerTitleStyle: {
+            alignSelf: 'center',
+        },
+        headerLeft: <Button title="left" onPress={() => 1}></Button>,
+        headerRight: <Button title="right" onPress={() => 1}></Button>
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-        </Text>
+                <View>
+                    <Text>this is header</Text>
+                </View>
+                <Text style={styles.welcome}> Welcome to React Native! </Text>
                 <Text style={styles.instructions}>
                     To get started, edit App.js
-                    this is liushao~ hahhaahaha
-        </Text>
+                    this is liushao~ hahhaahaha </Text>
                 <Text style={styles.instructions}>
                     {instructions}
                 </Text>
@@ -39,10 +52,25 @@ export default class App extends React.Component<{}> {
     }
 }
 
+const myStackNavigator = StackNavigator({
+    Home: {
+        screen: App
+    }
+})
+const myDrawerNavigator = DrawerNavigator({
+    App: {
+        screen: myStackNavigator,
+        navigationOptions: {
+            drawerLabel: 'APP',
+        }
+    }
+})
+export default myDrawerNavigator
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
