@@ -9,79 +9,27 @@ import {
     Platform,
     StyleSheet,
     Text, StatusBar,
-    View,
+    View, Image,
     Button
 } from 'react-native';
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+import { StackNavigator, DrawerNavigator, NavigationActions, NavigationAction } from "react-navigation";
+import Icon from "./assets/icon";
+import { CurrentPage } from "./views/current_page";
+import { Home } from './views/home'
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-        'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
-
-class App extends React.Component<{}> {
-    static navigationOptions = {
-        title: 'Great',
-        headerStyle: {
-            height: 35,
-            justifyContent: 'center'
-        },
-        headerTitleStyle: {
-            alignSelf: 'center',
-        },
-        headerLeft: <Button title="left" onPress={() => 1}></Button>,
-        headerRight: <Button title="right" onPress={() => 1}></Button>
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <View>
-                    <Text>this is header</Text>
-                </View>
-                <Text style={styles.welcome}> Welcome to React Native! </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit App.js
-                    this is liushao~ hahhaahaha </Text>
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
-            </View>
-        );
-    }
-}
-
-const myStackNavigator = StackNavigator({
+const App = DrawerNavigator({
     Home: {
-        screen: App
-    }
-})
-const myDrawerNavigator = DrawerNavigator({
-    App: {
-        screen: myStackNavigator,
+        screen: Home,
         navigationOptions: {
-            drawerLabel: 'APP',
+            drawerLabel: 'home',
+            drawerIcon({ focused = false }) {
+                return <Image source={Icon.home} resizeMode="contain" style={{ width: 24, height: 24 }}></Image>
+            }
         }
+    },
+    Current: {
+        screen: CurrentPage
     }
 })
-export default myDrawerNavigator
+export default App
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
