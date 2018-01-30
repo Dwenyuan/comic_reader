@@ -17,6 +17,14 @@ export class HomePage extends React.Component<{}> {
         return (
             <View style={styles.container}>
                 <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
+                <Thumbnail />
             </View>
         );
     }
@@ -25,9 +33,11 @@ export class HomePage extends React.Component<{}> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         backgroundColor: '#F5FCFF',
+        flexWrap: 'wrap',
     },
     welcome: {
         fontSize: 20,

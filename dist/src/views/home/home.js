@@ -7,6 +7,14 @@ const header_1 = require("../../components/header");
 class HomePage extends React.Component {
     render() {
         return (React.createElement(react_native_1.View, { style: styles.container },
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(Thumbnail_1.Thumbnail, null),
             React.createElement(Thumbnail_1.Thumbnail, null)));
     }
 }
@@ -15,9 +23,11 @@ exports.HomePage = HomePage;
 const styles = react_native_1.StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         backgroundColor: '#F5FCFF',
+        flexWrap: 'wrap',
     },
     welcome: {
         fontSize: 20,
