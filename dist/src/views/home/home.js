@@ -4,7 +4,22 @@ const React = require("react");
 const react_native_1 = require("react-native");
 const Thumbnail_1 = require("./Thumbnail");
 const header_1 = require("../../components/header");
+const react_native_fs_1 = require("react-native-fs");
 class HomePage extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.state = {
+            content: '测试'
+        };
+    }
+    componentDidMount() {
+        const path = react_native_fs_1.MainBundlePath + 'text.txt';
+        react_native_fs_1.writeFile(path, '这是一段文本', 'utf8').then(sucess => alert('done')).catch(error => alert('error'));
+    }
+    getContent() {
+        const path = react_native_fs_1.MainBundlePath + 'text.txt';
+        react_native_fs_1.readFile(path, 'utf8').then(data => this.setState({ content: data }));
+    }
     render() {
         return (React.createElement(react_native_1.View, { style: styles.container },
             React.createElement(Thumbnail_1.Thumbnail, null),
@@ -15,7 +30,9 @@ class HomePage extends React.Component {
             React.createElement(Thumbnail_1.Thumbnail, null),
             React.createElement(Thumbnail_1.Thumbnail, null),
             React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null)));
+            React.createElement(Thumbnail_1.Thumbnail, null),
+            React.createElement(react_native_1.Text, null, this.state.content),
+            React.createElement(react_native_1.Button, { title: "获取内容", onPress: () => this.getContent() })));
     }
 }
 HomePage.navigationOptions = header_1.wrapper('home');

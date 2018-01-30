@@ -12,9 +12,11 @@
     "@types/react-navigation": "^1.0.29",
     "react": "16.2.0",
     "react-native": "0.52.1",
+    "react-native-fs": "^2.9.7",
     "react-navigation": "^1.0.0-beta.27"
   },
   "devDependencies": {
+    "@types/react-native-fs": "^2.8.0",
     "babel-jest": "22.1.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "22.1.4",

@@ -4,6 +4,7 @@ import { StackNavigator } from "react-navigation";
 
 import { Thumbnail } from "./Thumbnail";
 import { wrapper } from "../../components/header";
+import { MainBundlePath, writeFile, readFile } from "react-native-fs";
 
 export interface IProps {
 
@@ -13,6 +14,17 @@ export interface IState {
 }
 export class HomePage extends React.Component<{}> {
     static navigationOptions = wrapper('home')
+    public state = {
+        content: '测试'
+    }
+    componentDidMount() {
+        const path = MainBundlePath + 'text.txt'
+        writeFile(path, '这是一段文本', 'utf8').then(sucess => alert('done')).catch(error => alert('error'))
+    }
+    getContent() {
+        const path = MainBundlePath + 'text.txt'
+        readFile(path, 'utf8').then(data => this.setState({ content: data }))
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -25,6 +37,8 @@ export class HomePage extends React.Component<{}> {
                 <Thumbnail />
                 <Thumbnail />
                 <Thumbnail />
+                <Text>{this.state.content}</Text>
+                <Button title="获取内容" onPress={() => this.getContent()}></Button>
             </View>
         );
     }

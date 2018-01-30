@@ -18,7 +18,7 @@ const thumbnailStyles = react_native_1.StyleSheet.create({
         width: 144,
         height: 256,
         resizeMode: 'contain',
-        backgroundColor: '#cccccc',
+        backgroundColor: '#cccccc'
     }
 });
 //# sourceMappingURL=Thumbnail.js.map
