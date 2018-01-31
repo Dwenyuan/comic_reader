@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, View, Text, StyleSheet } from "react-native";
+import { Button, View, Text, StyleSheet, ScrollView } from "react-native";
 import { StackNavigator } from "react-navigation";
 
 import { Thumbnail } from "./Thumbnail";
@@ -27,19 +27,21 @@ export class HomePage extends React.Component<{}> {
     }
     render() {
         return (
-            <View style={styles.container}>
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Thumbnail />
-                <Text>{this.state.content}</Text>
-                <Button title="获取内容" onPress={() => this.getContent()}></Button>
-            </View>
+            <ScrollView style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Thumbnail />
+                    <Text>{this.state.content}</Text>
+                    <Button title="获取内容" onPress={() => this.getContent()}></Button>
+                </View>
+            </ScrollView>
         );
     }
 }

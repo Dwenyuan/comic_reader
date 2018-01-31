@@ -21,18 +21,19 @@ class HomePage extends React.Component {
         react_native_fs_1.readFile(path, 'utf8').then(data => this.setState({ content: data }));
     }
     render() {
-        return (React.createElement(react_native_1.View, { style: styles.container },
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(Thumbnail_1.Thumbnail, null),
-            React.createElement(react_native_1.Text, null, this.state.content),
-            React.createElement(react_native_1.Button, { title: "获取内容", onPress: () => this.getContent() })));
+        return (React.createElement(react_native_1.ScrollView, { style: { flex: 1 } },
+            React.createElement(react_native_1.View, { style: styles.container },
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(Thumbnail_1.Thumbnail, null),
+                React.createElement(react_native_1.Text, null, this.state.content),
+                React.createElement(react_native_1.Button, { title: "获取内容", onPress: () => this.getContent() }))));
     }
 }
 HomePage.navigationOptions = header_1.wrapper('home');

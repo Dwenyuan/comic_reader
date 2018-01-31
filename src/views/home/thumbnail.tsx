@@ -24,7 +24,7 @@ const thumbnailStyles = StyleSheet.create({
     image: {
         width: 144,
         height: 256,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
         backgroundColor: '#cccccc'
     }
 })
